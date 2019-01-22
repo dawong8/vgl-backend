@@ -21,6 +21,6 @@ app.use('/', vglController);
 app.use('/admin', adminController);
 
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
 	console.log("Server is listening in port 3000");
 });
