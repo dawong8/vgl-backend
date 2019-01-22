@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> UPDATE TEAM </title>
+</head>
+<body>
+	<p>This is for Updating team</p>
+	<form action="/admin/secret/<%= team._id%>?_method=PUT" method="POST">
+		Team Name <input type="text" name="name" value="<%= team.name%>"> <br>
+		Team Logo (optional) <input type="text" name="logo" value="<%= team.logo%>"> <br>
+		Points <input type="text" name="points" value="<%= team.points%>"> <br>
+		# wins <input type="text" name="wins" value="<%= team.wins%>"> <br>
+		# losses <input type="text" name="losses" value="<%= team.losses%>"> <br>
+		top <input type="text" name="top" value="<%= team.top%>"> <br>
+		jg <input type="text" name="jg" value="<%= team.jg%>"> <br>
+		mid <input type="text" name="mid" value="<%= team.mid%>"> <br>
+		adc <input type="text" name="adc" value="<%= team.adc%>"> <br>
+		support <input type="text" name="support" value="<%= team.support%>"> <br>
+		<button input="submit"> Update </button>
+	</form>
+</body>
+</html>

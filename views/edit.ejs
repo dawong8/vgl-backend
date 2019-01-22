@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Admin Edits</title>
+</head>
+<body>
+	<p> Welcome to secret page. </p>
+
+	<p> This is where you create/edit teams. </p>
+<!-- 	<a href="/admin/schedule"> Go To Events Manager </a>
+ -->
+	<form action="/admin/secret" method="POST">
+		<h1>Add new team</h1>
+
+		Team Name <input type="text" name="name"> <br>
+		Team Logo (optional) <input type="text" name="logo"> <br>
+		Points <input type="text" name="points"> <br>
+		# wins <input type="text" name="wins"> <br>
+		# losses <input type="text" name="losses"> <br>
+		top <input type="text" name="top"> <br>
+		jg <input type="text" name="jg"> <br>
+		mid <input type="text" name="mid"> <br>
+		adc <input type="text" name="adc"> <br>
+		support <input type="text" name="support"> <br>
+		<button input="submit"> Create </button>
+	</form>
+
+	<h1> Current Teams </h1>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Points</th>
+			<th>Wins</th>
+			<th>Losses</th>
+			<th>Top</th>
+			<th>JG</th>
+			<th>Mid</th>
+			<th>ADC</th>
+			<th>Support</th>
+			<th> </th>   
+			<th> </th>
+		</tr>
+		<% for (let a = 0; a < allTeams.length; a++) { %>
+			<tr>
+
+				<td> "<%= allTeams[a].name %>"</td>
+				<td>  <%= allTeams[a].points %></td>
+				<td>  <%= allTeams[a].wins %></td>
+				<td>  <%= allTeams[a].losses %></td>
+				<td>  <%= allTeams[a].top %></td>
+				<td>  <%= allTeams[a].jg %></td>
+				<td>  <%= allTeams[a].mid %></td>
+				<td>  <%= allTeams[a].adc %></td>
+				<td>  <%= allTeams[a].support %></td>
+				<td> <a href="/admin/secret/<%= allTeams[a]._id%>/update"> <button> EDIT </button></a></td>
+				<td> 
+					<form action="/admin/secret/<%= allTeams[a]._id%>?_method=DELETE" method="POST">
+                      <input type="hidden" name="_method" value="DELETE"/>
+
+						<button input="submit"> DELETE </button>
+					</form>
+				</td>
+			</tr>	
+		<% }%>
+
+	</table>
+</body>
+</html>

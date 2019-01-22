@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> VGL - Events </title>
+	<link rel="shortcut icon" href="/images/favico.ico">
+	<link rel="stylesheet" type="text/css" href="/css/styles.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
+</head>
+<body>
+	<div class="container">
+		<header>
+			<a href="/"><img src="/images/VanLogoWhite.png" alt="van-logo" id="logo"> </a>
+			<nav>
+				<a href="/schedule">SCHEDULE</a>
+				<a href="/stats">TEAMS & STANDING</a>
+				<a href="https://www.twitch.tv/vangamingleague">WATCH</a>
+				<a id="dropdown">ABOUT VGL
+				</a>
+				<div class="dropdown-content hide">
+					<ul>
+						<a class="drop" href="https://discord.gg/kwNwr7J"><li>DISCORD</li></a>
+						<a class="drop" href="https://www.twitch.tv/vangamingleague"><li>TWITCH</li></a>
+						<a class="drop" href=""><li>SIGN UP</li></a>
+
+					</ul>
+				</div>
+
+			</nav>
+		</header>
+
+		<div class="calendar">
+			<h2 id="calendar-title"> JAN 2019 </h2>
+			<% let date = -1 %>
+			<% for (let i = 0; i < 5; i++) { %>
+				<div class="week">
+				<% for (let c = 0; c < 7; c++) { %>
+					<% switch (date) {
+						case -1:
+						case 0: 
+						case 32:
+						case 33: %>
+						<span> </span>
+					<%  
+							break;
+						case 11:
+						case 18: %>
+							<span class="special-date"> <%= date %>
+							<div class="eventdate"> 9:00pm EST </div>
+	    					<div class="eventtime"> Teams 1 vs 5 </div>
+	    					</span>
+	    			<%  
+							break;
+						case 14:
+						case 22: %>
+							<span class="special-date"> <%= date %>
+							<div class="eventdate"> 8:30pm EST </div>
+	    					<div class="eventtime"> Teams 3 vs 4 </div>
+	    					</span>
+					<%  
+							break;
+						case 12: %>
+							<span class="special-date"> <%= date %>
+							<div class="eventdate"> 9:00pm EST </div>
+	    					<div class="eventtime"> Teams 1 vs 2 </div>
+	    					<div class="eventdate"> 10:00pm EST</div>
+	    					<div class="eventtime"> Team 3 vs 7 </div>
+	    					</span>
+	    			<%  
+							break;
+						case 13: %>
+							<span class="special-date"> <%= date %>
+							<div class="eventdate"> 9:00pm EST </div>
+	    					<div class="eventtime"> Teams 5 vs 6 </div>
+	    					</span>
+	    			<%  
+							break;
+						case 20: %>
+							<span class="special-date"> <%= date %>
+							<div class="eventdate"> 9:00pm EST </div>
+	    					<div class="eventtime"> Teams 2 vs 6 </div>
+	    					</span>
+	    			<%  
+							break;
+						case 19: %>
+							<span class="special-date"> <%= date %>
+							<div class="eventdate"> 9:00pm EST </div>
+	    					<div class="eventtime"> Teams 2 vs 7 </div>
+	    					</span>
+					<% 	break;
+						default:
+
+
+					%>
+						<span> <%= date %></span>
+
+
+					<% } date++; %>
+				<%}%>
+				</div>
+			<% } %>
+		</div>
+	</div>
+	<script type="text/javascript" src="/js/app.js"></script>
+
+</body>
+</html>

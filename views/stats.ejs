@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> VGL - Stats</title>
+    <link rel="shortcut icon" href="/images/favico.ico">
+
+	<link rel="stylesheet" type="text/css" href="/css/styles.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
+</head>
+<body>
+	<div class="container">
+		<header>
+			<a href="/"><img src="/images/VanLogoWhite.png" alt="van-logo" id="logo"> </a>
+			<nav>
+				<a href="/schedule">SCHEDULE</a>
+				<a href="/stats">TEAMS & STANDING</a>
+				<a href="https://www.twitch.tv/vangamingleague">WATCH</a>
+				<a id="dropdown">ABOUT VGL
+				</a>
+				<div class="dropdown-content hide">
+					<ul>
+						<a class="drop" href="https://discord.gg/kwNwr7J"><li>DISCORD</li></a>
+						<a class="drop" href="https://www.twitch.tv/vangamingleague"><li>TWITCH</li></a>
+						<a class="drop" href=""><li>SIGN UP</li></a>
+
+					</ul>
+				</div>
+
+			</nav>
+		</header>
+
+
+		<div class="stats"> 
+			<h2>Teams & Standings</h2>
+
+			<table>
+			  <tr>
+
+			    <th>TEAM</th>
+
+			    <th>POINTS</th>
+
+			    <th>WINS</th>
+			    <th>LOSSES</th>
+			    <th>TOP</th>
+			    <th>JG</th>
+			    <th>MID</th>
+			    <th>BOT</th>
+			    <th>SUP</th>
+
+			  </tr>
+			  <% for (let a = 0; a < allTeams.length; a++) { %>
+			  	<tr>
+
+					<td> <%= allTeams[a].name %></td>
+					<td>  <%= allTeams[a].points %></td>
+					<td>  <%= allTeams[a].wins %></td>
+					<td>  <%= allTeams[a].losses %></td>
+					<td>  <%= allTeams[a].top %></td>
+					<td>  <%= allTeams[a].jg %></td>
+					<td>  <%= allTeams[a].mid %></td>
+					<td>  <%= allTeams[a].adc %></td>
+					<td>  <%= allTeams[a].support %></td>
+
+				</tr>	
+			  <% } %>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
