@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const connectionString = 'mongodb://localhost/vgl';  // change later
+const connectionString = 'mongodb://heroku_hnz3x667:5890436Aa@ds163354.mlab.com:63354/heroku_hnz3x667';  // change later
 
 mongoose.connect(connectionString, {
 	useNewUrlParser: true, 
