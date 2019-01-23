@@ -52,12 +52,11 @@
 
 			  </tr>
 			  <% allTeams.sort(function(a,b) {
-			  	return a.points - b.points;
+			  	return b.points - a.points;
 			  })%>
-			  <% for (let a = 1; a <= allTeams.length; a++) { %>
+			  <% for (let a = 0; a < allTeams.length; a++) { %>
 			  	<tr>
-			  		<%= console.log('my name is ' + allTeams[a].name)%>
-			  		<td> <%= a %> </td>
+			  		<td> <%= a + 1 %> </td>
 					<td> <%= allTeams[a].name %></td>
 					<td>  <%= allTeams[a].points %></td>
 					<td>  <%= allTeams[a].wins %></td>
