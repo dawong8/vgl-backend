@@ -36,13 +36,14 @@
 
 			<table>
 			  <tr>
-
+			  	<th> PLACEMENT </th>
 			    <th>TEAM</th>
 
 			    <th>POINTS</th>
 
 			    <th>WINS</th>
 			    <th>LOSSES</th>
+			    <th> GAMES PLAYED </th>
 			    <th>TOP</th>
 			    <th>JG</th>
 			    <th>MID</th>
@@ -50,13 +51,17 @@
 			    <th>SUP</th>
 
 			  </tr>
-			  <% for (let a = 0; a < allTeams.length; a++) { %>
+			  <% allTeams.sort(function(a,b) {
+			  	return a.points - b.points;
+			  })%>
+			  <% for (let a = 1; a <= allTeams.length; a++) { %>
 			  	<tr>
-
+			  		<td> <%= a %> </td>
 					<td> <%= allTeams[a].name %></td>
 					<td>  <%= allTeams[a].points %></td>
 					<td>  <%= allTeams[a].wins %></td>
 					<td>  <%= allTeams[a].losses %></td>
+					<td> <%= allTeams[a].wins + allTeams[a].losses %></td>
 					<td>  <%= allTeams[a].top %></td>
 					<td>  <%= allTeams[a].jg %></td>
 					<td>  <%= allTeams[a].mid %></td>
@@ -68,5 +73,8 @@
 			</table>
 		</div>
 	</div>
+
+	<script type="text/javascript" src="/js/app.js"></script>
+
 </body>
 </html>

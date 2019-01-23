@@ -16,12 +16,12 @@ router.get('/schedule', (req, res) => {
 
 
 router.get('/stats', (req, res) => {
-	Teams.find({}, (err, allTeams) => {
+	Teams.find({}, (err, all) => {
 		if (err) {
 			res.respond(err);
 		} else {
 			res.render('stats.ejs', {
-				allTeams: allTeams
+				allTeams: all
 			});
 		}
 	})
