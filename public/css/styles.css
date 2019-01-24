@@ -237,3 +237,46 @@ tr:nth-child(even) {
   padding-left: 10px;
   color: #C9AA71;
 }
+
+.application-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 40%;
+
+}
+
+input {
+  height: 20px;
+  background: none;
+  color: #C9AA71;
+  text-align: center;
+  font-family: 'Major Mono Display', monospace;
+  border-radius: 45px;
+  border: solid 1px #C9AA71;
+}
+
+select {
+  margin: 0 40%;
+  color: #C9AA71;
+  font-family: 'Major Mono Display', monospace;
+
+  background: none;
+}
+
+form button {
+  margin: 0 40%;
+  font-family: 'Major Mono Display', monospace;
+  color: #C9AA71;
+  background: none;
+  border-radius: 45px;
+}
+
+/*#join-button {
+  text-decoration: none; 
+  color: white;
+  border: 1px solid white;
+  border-radius: 45px;
+  font-size: 1em;
+  padding: 2% 2%;
+}*/

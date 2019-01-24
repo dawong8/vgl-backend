@@ -3,6 +3,7 @@ const router = express.Router();
 
 //const Events = require('../models/events');
 const Teams = require('../models/teams');
+const Applicants = require('../models/applicants');
 
 
 
@@ -28,5 +29,22 @@ router.get('/stats', (req, res) => {
 });
 
 
+router.get('/success', (req, res) => {
+	res.render('success.ejs');
+})
+
+router.get('/signup', (req, res) => {
+	res.render('signup.ejs');
+});
+
+router.post('/', (req, res) => {
+	Applicants.create(req.body, (err, createdApplicant) => {
+		if (err) {
+			res.respond(err); 
+		} else {
+			res.redirect('/success');
+		}
+	})
+});
 
 module.exports = router;// super important!!!! do not forget this line of code

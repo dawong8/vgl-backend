@@ -64,5 +64,30 @@
 		<% }%>
 
 	</table>
+	<table>
+		<tr>
+			<th>IGN</th>
+			<th>pos1</th>
+			<th>pos2</th>
+			<th>rank</th>
+			<th>honor</th>
+			<th>partner</th>
+		</tr>	
+
+		<h1> Season 2 Applicants </h1>
+		<% for (let a = 0; a < applicants.length; a++) { %>
+			<tr>
+
+				<td> "<%= applicants[a].ign %>"</td>
+				<td> <%= applicants[a].position1 %></td>
+				<td> <%= applicants[a].position2 %></td>
+				<td> <%= applicants[a].rank %></td>
+				<td> <%= applicants[a].honor %></td>
+				<td> <%= applicants[a].partner %></td>
+				
+				
+			</tr>	
+		<% } %>
+	</table>
 </body>
 </html>

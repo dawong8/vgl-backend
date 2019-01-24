@@ -2,8 +2,9 @@ const express = require('express');
 
 const router = express.Router();
 
-const Events = require('../models/events');
+//const Events = require('../models/events');
 const Teams = require('../models/teams');
+const Applicants = require('../models/applicants');
 
 let access = false;
 
@@ -23,33 +24,26 @@ router.post('/', (req, res) => {
 
 });
 
-router.get('/secret', (req, res) => {
+router.get('/secret', async (req, res) => {
 
-	Teams.find({}, (err, foundTeam) => {
-		if(err) {
-			res.respond(err); 
-		} else {
-			res.render('edit.ejs', {
-				allTeams: foundTeam
-			});
-		}
-	});
+	try {
+
+		const [foundTeam, allApplicants] = await Promise.all([Teams.find({}), Applicants.find({})]);
+
+		res.render('edit.ejs', {
+			allTeams: foundTeam, 
+			applicants: allApplicants
+		})
+
+	} catch (err) {
+		res.send(err);
+	}
+
 
 
 
 });
 
-// router.get('/schedule', (req, res) => {
-// 	Events.find({}, (err, foundEvent) => {
-// 		if (err) {
-// 			res.respond(err); 
-// 		} else {
-// 			res.render('schedule.ejs', {
-// 				allEvents: foundEvent
-// 			})
-// 		}
-// 	})
-// });
 
  // CREATE 
 router.post('/secret', (req, res) => {
@@ -108,6 +102,9 @@ router.delete('/secret/:id', (req, res) => {
 		}
 	});
 });
+
+
+
 
 
 
