@@ -13,7 +13,7 @@ const session        = require('express-session')
 
 
 const corsOptions = {
-  origin: 'http://localhost:3000', 
+  origin: '*', 
 
   credentials: true, // This allows the session cookie to be sent back and forth
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
