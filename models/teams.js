@@ -1,16 +1,30 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
 
 const teamSchema = new mongoose.Schema({
 	name: {type: String, require: true},
-	logo: String, //optional 
+
+
 	points: Number, 
 	wins: Number, 
 	losses: Number, 
+
+	// KDA
 	top: String, 
 	jg: String, 
 	mid: String, 
 	adc: String, 
-	support: String
+	support: String, 
+
+	// comp: [[String]], // storing pictures 
+	// members: [ {
+	// 	type: Schema.Types.ObjectId,
+ //   		ref: 'User'
+	// } ], 
+
+
+//	upcomingmatches: [String], // implement in the future
 
 
 });

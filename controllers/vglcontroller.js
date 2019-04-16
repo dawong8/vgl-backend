@@ -1,19 +1,19 @@
+// THINK, I DONT REALLY NEED THIS PAGE 
+
+
+
+
+
+
 const express = require('express');
 const router = express.Router(); 
 
 //const Events = require('../models/events');
 const Teams = require('../models/teams');
 const Applicants = require('../models/applicants');
+const Users = require('../models/user');
 
 
-
-router.get('/', (req, res) => {
-	res.render('home.ejs');
-});
-
-router.get('/schedule', (req, res) => {
-	res.render('calendar.ejs');
-});
 
 
 router.get('/stats', (req, res) => {
@@ -21,30 +21,58 @@ router.get('/stats', (req, res) => {
 		if (err) {
 			res.respond(err);
 		} else {
-			res.render('stats.ejs', {
+			res.json({
 				allTeams: all
 			});
 		}
 	})
 });
 
-
-router.get('/success', (req, res) => {
-	res.render('success.ejs');
-})
-
-router.get('/signup', (req, res) => {
-	res.render('signup.ejs');
-});
-
-router.post('/', (req, res) => {
-	Applicants.create(req.body, (err, createdApplicant) => {
+router.get('/users', (req, res) => {
+	Users.find({}, (err, all) => {
 		if (err) {
-			res.respond(err); 
+			res.respond(err);
 		} else {
-			res.redirect('/success');
+			res.json({
+				allUsers: all
+			});
 		}
 	})
 });
+
+router.get('/:id', async (req, res) => {
+	try {
+		const foundTeam = await Teams.findById(req.params.id); 
+		res.json({
+			found: foundTeam
+		});
+	} catch (err) {
+		res.send(err);
+	}
+});
+
+
+router.get('/users/:id', async (req, res) => {
+	try {
+		const foundUser = await Users.findById(req.params.id); 
+		res.json({
+			found: foundUser
+		});
+	} catch (err) {
+		res.send(err);
+	}
+});
+
+
+
+// router.post('/', (req, res) => {
+// 	Applicants.create(req.body, (err, createdApplicant) => {
+// 		if (err) {
+// 			res.respond(err); 
+// 		} else {
+// 			res.redirect('/success');
+// 		}
+// 	})
+// });
 
 module.exports = router;// super important!!!! do not forget this line of code

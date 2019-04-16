@@ -51,22 +51,16 @@ router.post('/secret', (req, res) => {
 		if (err) {
 			res.send(err);
 		} else {
-			console.log('create team is ' + createdTeam);
-			res.redirect('/admin/secret');
+			res.json({
+		    	created: createdTeam
+		    });
 		}
+	    
 	});
 
 });
 
-// router.post('/schedule', (req, res) => {
-// 	Events.create(req.body, (err, createdTeam) => {
-// 		if (err) {
-// 			res.send(err);
-// 		} else {
-// 			res.redirect('/admin/schedule');
-// 		}
-// 	});
-// });
+
 
 //EDIT 
 router.put('/secret/:id', (req, res) => {
@@ -74,17 +68,23 @@ router.put('/secret/:id', (req, res) => {
 		if (err) {
 			res.respond(err);
 		} else {
-			res.redirect('/admin/secret');
+			res.json({
+				team: thatTeam
+			})
 		}
 	});
 });
+
+
+
+// find by id 
 
 router.get('/secret/:id/update', (req, res) => {
 	Teams.findById(req.params.id, (err, thatTeam) => {
 		if(err) {
 			res.respond(err);
 		} else {
-			res.render('update.ejs', {
+			res.json({
 				team: thatTeam
 			});
 		}
@@ -98,7 +98,10 @@ router.delete('/secret/:id', (req, res) => {
 		if(err) {
 			res.respond(err);
 		} else {
-			res.redirect('/admin/secret');
+			res.json({
+				status: 'success', 
+				deleted: 'thatTeam'
+			})
 		}
 	});
 });
